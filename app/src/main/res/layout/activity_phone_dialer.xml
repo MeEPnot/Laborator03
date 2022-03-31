@@ -135,9 +135,12 @@
                 app:layout_gravity="center"
                 app:srcCompat="@android:drawable/sym_action_call" />
 
-            <Space
+            <ImageButton
+                android:id="@+id/add_number_button"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                app:layout_gravity="center"
+                app:srcCompat="@android:drawable/ic_menu_add" />
 
             <ImageButton
                 android:id="@+id/reject_call_button"

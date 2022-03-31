@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class PhoneDialerActivity extends AppCompatActivity {
 
@@ -61,6 +62,20 @@ public class PhoneDialerActivity extends AppCompatActivity {
 
     private RejectClickListener rejectClickListener = new RejectClickListener();
 
+    private class AddContactClickListener implements View.OnClickListener {
+        public void onClick(View view) {
+            String phoneNumber = ((TextView) findViewById(R.id.textView)).getText().toString();
+            if (phoneNumber.length() > 0) {
+                Intent intent = new Intent("ro.pub.cs.systems.eim.lab04.contactsmanager.intent.action.ContactsManagerActivity");
+                intent.putExtra("ro.pub.cs.systems.eim.lab04.contactsmanager.PHONE_NUMBER_KEY", phoneNumber);
+                startActivityForResult(intent, 2022);
+            } else {
+                Toast.makeText(getApplication(), "Insert Phone Number", Toast.LENGTH_LONG).show();
+            }
+        };
+    }
+
+    private AddContactClickListener addContactClickListener = new AddContactClickListener();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,6 +98,16 @@ public class PhoneDialerActivity extends AppCompatActivity {
         ((ImageButton) findViewById(R.id.backspace_button)).setOnClickListener(backspaceClickListener);
         ((ImageButton) findViewById(R.id.reject_call_button)).setOnClickListener(rejectClickListener);
         ((ImageButton) findViewById(R.id.accept_call_button)).setOnClickListener(callClickListener);
+        ((ImageButton) findViewById(R.id.add_number_button)).setOnClickListener(addContactClickListener);
+    }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        super.onActivityResult(requestCode, resultCode, intent);
+        switch (requestCode) {
+            case 2022:
+                Toast.makeText(this, "Activity returned with result " + resultCode, Toast.LENGTH_LONG).show();
+                break;
+        }
     }
 }
