@@ -7,42 +7,24 @@
     tools:context=".PhoneDialerActivity">
 
     <LinearLayout
-        android:layout_width="410dp"
-        android:layout_height="734dp"
+        android:layout_width="728dp"
+        android:layout_height="617dp"
         android:orientation="vertical"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="0dp">
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="match_parent"
+            android:layout_width="728dp"
             android:layout_height="45dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
         <androidx.gridlayout.widget.GridLayout
             android:layout_width="wrap_content"
-            android:layout_height="304dp"
+            android:layout_height="178dp"
             android:layout_gravity="center"
-            app:columnCount="3"
-            app:rowCount="6">
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <ImageButton
-                android:id="@+id/backspace_button"
-                android:layout_width="75dp"
-                android:layout_height="70dp"
-                android:layout_gravity="end"
-                android:scaleType="fitCenter"
-                app:layout_gravity="center"
-                app:srcCompat="@android:drawable/ic_input_delete"
-                app:tint="#000000" />
+            app:columnCount="5"
+            app:rowCount="3">
 
             <Button
                 android:id="@+id/button_1"
@@ -108,25 +90,11 @@
                 android:text="9" />
 
             <Button
-                android:id="@+id/button_star"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:backgroundTint="#ACACAC"
-                android:text="*" />
-
-            <Button
                 android:id="@+id/button_0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#ACACAC"
                 android:text="0" />
-
-            <Button
-                android:id="@+id/button_pound"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:backgroundTint="#ACACAC"
-                android:text="#" />
 
             <ImageButton
                 android:id="@+id/accept_call_button"
@@ -135,9 +103,31 @@
                 app:layout_gravity="center"
                 app:srcCompat="@android:drawable/sym_action_call" />
 
-            <Space
+            <Button
+                android:id="@+id/button_star"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:backgroundTint="#ACACAC"
+                android:text="*"
+                app:layout_gravity="center" />
+
+            <ImageButton
+                android:id="@+id/backspace_button"
+                android:layout_width="75dp"
+                android:layout_height="70dp"
+                android:layout_gravity="end"
+                android:scaleType="fitCenter"
+                app:layout_gravity="center"
+                app:srcCompat="@android:drawable/ic_input_delete"
+                app:tint="#000000" />
+
+            <Button
+                android:id="@+id/button_pound"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#ACACAC"
+                android:text="#"
+                app:layout_gravity="center" />
 
             <ImageButton
                 android:id="@+id/reject_call_button"
